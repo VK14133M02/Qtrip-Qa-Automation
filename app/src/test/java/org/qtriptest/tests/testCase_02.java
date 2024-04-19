@@ -35,7 +35,7 @@ public class testCase_02 {
     @Parameters({"CityName","Category_Filter","DurationFilter","ExpectedFilteredResults","ExpectedUnFilteredResults"})
     public void TestCase02(String CityName,String Category_Filter,String DurationFilter,String ExpectedFilteredResults,String ExpectedUnFilteredResults) throws InterruptedException{
         boolean status = false;
-        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase02", "Start")));
+        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase02", "Start")));
         HomePage home = new HomePage(driver);
         home.navigateToHome();
         Thread.sleep(4000);            
@@ -64,7 +64,7 @@ public class testCase_02 {
         int finalData = adventurePage.verifyAppropriateData();      
         status = finalData == Integer.parseInt(ExpectedUnFilteredResults);
         Assert.assertTrue(status,"Not Getting the appropriate data after clear filter");        
-        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase02", "PASS")));
+        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase02", "PASS")));
     }
 
     @AfterSuite

@@ -38,7 +38,7 @@ public class testCase_03 {
     @Parameters({"NewUserName","Password","SearchCity","AdventureName","GuestName","Date","count"})
     public void TestCase03(String NewUserName,String Password,String SearchCity,String AdventureName,String GuestName,String Date, String count) throws InterruptedException{
         boolean status = false;
-        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase03", "Start")));
+        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase03", "Start")));
 
         RegisterPage registration = new RegisterPage(driver);
         registration.navigateToRegisterPage();
@@ -79,7 +79,7 @@ public class testCase_03 {
         Thread.sleep(4000);
         status = historyPage.verifyTransecrionIdRemoved();
         Assert.assertTrue(status,"Unable to handle noReservationPopup : Fail");
-        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase03", "PASS")));
+        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase03", "PASS")));
 
     }
 

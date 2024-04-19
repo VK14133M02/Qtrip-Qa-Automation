@@ -42,7 +42,7 @@ public class ReportSingleton {
             if (!theDir.exists()) {
                 theDir.mkdirs();
             }
-            String timestamp = String.valueOf(java.time.LocalDateTime.now());
+            String timestamp = String.valueOf(java.time.LocalDateTime.now()).replace(':', '-');
             String fileName = String.format("screenshot_%s_%s_%s.png", timestamp, screenshotType, description);
             TakesScreenshot scrShot = ((TakesScreenshot) driver);
             File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);

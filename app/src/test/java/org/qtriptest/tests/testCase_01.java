@@ -38,7 +38,7 @@ public class testCase_01 {
     public void TestCase01(String userName, String password) throws InterruptedException{
         boolean status;
         System.out.println("Testcase 1 started, It will verify the authentication of user : Done");
-        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase01", "Start")));
+        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase01", "Start")));
 
         // Visit the Registration page and register a new user
         RegisterPage registration = new RegisterPage(driver);
@@ -58,7 +58,7 @@ public class testCase_01 {
         HomePage home = new HomePage(driver);
         status = home.PerformLogout();
         Assert.assertTrue(status,"Not able to Logout the user : Fail");
-        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase01", "PASS")));
+        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase01", "PASS")));
 
         System.out.println("Test case 1 passed successfully : Pass");
 
