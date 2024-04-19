@@ -10,7 +10,6 @@ import org.qtriptest.pages.HomePage;
 import org.qtriptest.pages.LoginPage;
 import org.qtriptest.pages.RegisterPage;
 import java.net.MalformedURLException;
-import java.net.URL;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -35,11 +34,11 @@ public class testCase_03 {
         test = report.startTest("TestCase03");
     }
 
-    // @Test(description = "TestCase03 Book an Adventure",dataProvider = "data-provider", dataProviderClass = DP.class, groups = {"Booking and Cancellation Flow"}, priority = 3)   
+    @Test(description = "TestCase03 Book an Adventure",dataProvider = "data-provider", dataProviderClass = DP.class, groups = {"Booking and Cancellation Flow"}, priority = 3)   
     @Parameters({"NewUserName","Password","SearchCity","AdventureName","GuestName","Date","count"})
     public void TestCase03(String NewUserName,String Password,String SearchCity,String AdventureName,String GuestName,String Date, String count) throws InterruptedException{
         boolean status = false;
-        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase03", "Start")));
+        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase03", "Start")));
 
         RegisterPage registration = new RegisterPage(driver);
         registration.navigateToRegisterPage();
@@ -80,7 +79,7 @@ public class testCase_03 {
         Thread.sleep(4000);
         status = historyPage.verifyTransecrionIdRemoved();
         Assert.assertTrue(status,"Unable to handle noReservationPopup : Fail");
-        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase03", "PASS")));
+        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase03", "PASS")));
 
     }
 

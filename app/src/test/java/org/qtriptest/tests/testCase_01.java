@@ -8,7 +8,6 @@ import org.qtriptest.pages.LoginPage;
 import org.qtriptest.pages.RegisterPage;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -34,12 +33,12 @@ public class testCase_01 {
         test = report.startTest("TestCase01");
     }
 
-    // @Test(description = "Verfy the authenticatio of user", dataProvider = "data-provider",dataProviderClass = DP.class, groups = {"Login Flow"}, priority = 1)
+    @Test(description = "Verfy the authenticatio of user", dataProvider = "data-provider",dataProviderClass = DP.class, groups = {"Login Flow"}, priority = 1)
     @Parameters({"userName","password"})
     public void TestCase01(String userName, String password) throws InterruptedException{
         boolean status;
         System.out.println("Testcase 1 started, It will verify the authentication of user : Done");
-        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase01", "Start")));
+        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase01", "Start")));
 
         // Visit the Registration page and register a new user
         RegisterPage registration = new RegisterPage(driver);
@@ -59,9 +58,10 @@ public class testCase_01 {
         HomePage home = new HomePage(driver);
         status = home.PerformLogout();
         Assert.assertTrue(status,"Not able to Logout the user : Fail");
-        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase01", "PASS")));
+        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase01", "PASS")));
 
         System.out.println("Test case 1 passed successfully : Pass");
+
     }
 
     @AfterSuite

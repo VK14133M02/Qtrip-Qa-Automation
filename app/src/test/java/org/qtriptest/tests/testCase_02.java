@@ -6,7 +6,6 @@ import org.qtriptest.ReportSingleton;
 import org.qtriptest.pages.AdventurePage;
 import org.qtriptest.pages.HomePage;
 import java.net.MalformedURLException;
-import java.net.URL;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -32,11 +31,11 @@ public class testCase_02 {
         test = report.startTest("TestCase02");
     }
 
-    // @Test(description = "TestCase02 find the city in searchbar", dataProvider = "data-provider", dataProviderClass = DP.class, groups = {"Search and Filter flow"}, priority = 2)
+    @Test(description = "TestCase02 find the city in searchbar", dataProvider = "data-provider", dataProviderClass = DP.class, groups = {"Search and Filter flow"}, priority = 2)
     @Parameters({"CityName","Category_Filter","DurationFilter","ExpectedFilteredResults","ExpectedUnFilteredResults"})
     public void TestCase02(String CityName,String Category_Filter,String DurationFilter,String ExpectedFilteredResults,String ExpectedUnFilteredResults) throws InterruptedException{
         boolean status = false;
-        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase02", "Start")));
+        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase02", "Start")));
         HomePage home = new HomePage(driver);
         home.navigateToHome();
         Thread.sleep(4000);            
@@ -65,7 +64,7 @@ public class testCase_02 {
         int finalData = adventurePage.verifyAppropriateData();      
         status = finalData == Integer.parseInt(ExpectedUnFilteredResults);
         Assert.assertTrue(status,"Not Getting the appropriate data after clear filter");        
-        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase02", "PASS")));
+        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase02", "PASS")));
     }
 
     @AfterSuite

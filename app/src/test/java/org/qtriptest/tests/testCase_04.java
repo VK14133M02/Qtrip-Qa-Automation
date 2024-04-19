@@ -10,7 +10,6 @@ import org.qtriptest.pages.HomePage;
 import org.qtriptest.pages.LoginPage;
 import org.qtriptest.pages.RegisterPage;
 import java.net.MalformedURLException;
-import java.net.URL;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -40,7 +39,7 @@ public class testCase_04 {
     @Parameters({"NewUserName","Password","dataset1","dataset2","dataset3"})
     public void TestCase04(String NewUserName,String Password,String dataset1,String dataset2,String dataset3) throws InterruptedException{
         boolean status = false;
-        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase04", "Start")));
+        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase04", "Start")));
 
         String[] DS1 = dataset1.split(";"); String[] DS2 = dataset2.split(";"); String[] DS3 = dataset3.split(";");
         RegisterPage registration = new RegisterPage(driver);
@@ -107,7 +106,7 @@ public class testCase_04 {
         HistoryPage historyPage = new HistoryPage(driver);  
         int numberOfBooking =  historyPage.verifyNumberOfBooking();
         Assert.assertEquals(numberOfBooking, 3,"The number of Booking is not sufficient");
-        test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase04", "PASS")));
+        // test.log(LogStatus.INFO, test.addScreenCapture(ReportSingleton.takeScreenshot(driver, "TestCase04", "PASS")));
 
     }
 
